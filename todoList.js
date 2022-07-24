@@ -8,7 +8,7 @@ let toDos = [];
 const TODOS_KEY =  "toDos";
 
 function saveToDos(){
-    localStorage.setItem(TODOS_KEY,JSON.stringify(toDos));
+    localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
     // todos array의 내용을 string으로 바꾼 후 localStorage에 넣는 함수.
 }
 
@@ -27,9 +27,10 @@ function paintTodo(tomato){
     const listItem = document.createElement("li");
     const span = document.createElement("span");
     // li 랑 span 만들기
-    span.innerText = tomato;
+    span.innerText = tomato.text;
     // span에 newTodo값 넣어주기
-
+    listItem.id = tomato.id;
+    // li에 id값 부여해주기
     const button = document.createElement("button");
     button.innerText="✖️"
     //버튼 만들고, x아이콘 넣어주기
@@ -43,19 +44,31 @@ function paintTodo(tomato){
 }
 
 function deleteTodo(event){
-    const deleteLi= event.target.parentElement;
+    const li= event.target.parentElement;
     // 버튼을 누르면 li 자체를 삭제하는 함수.
     // 해당 btn이 속해있는 li 확인하려면 event함수 사용하기.
-    deleteLi.remove();
+    console.log(li.id);
+    li.remove();
+    toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+    // 우리가 클릭한 li.id가 아닌 것들은 남겨두고 싶음
+    saveToDos();
 }
+
 
 function handleTodo(event){
     event.preventDefault();
     const newTodo = todoInput.value;
-    toDos.push(newTodo);
-    paintTodo(newTodo);
-    saveToDos();
     todoInput.value="";
+    const newTodoObj = {
+        text: newTodo,
+        //텍스트는 newTodo의 value값 얻고
+        id: Date.now(),
+        //랜덤한 숫자의 id 얻기
+       };
+    toDos.push(newTodoObj);
+    //obj 형태로 array에 저장한다
+    paintTodo(newTodoObj);
+    saveToDos();
 }
 
 todoBtn.addEventListener("click",handleTodo)
