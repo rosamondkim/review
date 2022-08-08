@@ -19,7 +19,6 @@ if(savedToDos !== null){
     const parsedToDos = JSON.parse(savedToDos);
     //자바스크립트가 읽을 수 있는 object로 변경하기 
     toDos = parsedToDos ; 
-    // 이거 이해 잘 안된다. push 해줘야하는거아닌가?
     parsedToDos.forEach(paintTodo);
 }
 
@@ -47,7 +46,6 @@ function deleteTodo(event){
     const li= event.target.parentElement;
     // 버튼을 누르면 li 자체를 삭제하는 함수.
     // 해당 btn이 속해있는 li 확인하려면 event함수 사용하기.
-    console.log(li.id);
     li.remove();
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
     // 우리가 클릭한 li.id가 아닌 것들은 남겨두고 싶음
@@ -71,5 +69,5 @@ function handleTodo(event){
     saveToDos();
 }
 
-todoBtn.addEventListener("click",handleTodo)
+todoBtn.addEventListener("click",handleTodo);
 
