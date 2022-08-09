@@ -27,9 +27,9 @@ const author = document.querySelector(".quoteAuthor");
 
 const todaysQuote = quotesArray[Math.floor(Math.random()* quotesArray.length)];
     
-quote.innerText = todaysQuote.quote;
-korean.innerText = todaysQuote.korean;
-author.innerText = `-${todaysQuote.author}-`;
+quote.innerHTML = todaysQuote.quote;
+korean.innerHTML = todaysQuote.korean;
+author.innerHTML = `-${todaysQuote.author}-`;
 
 
 const imges = [
