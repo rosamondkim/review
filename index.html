@@ -2,25 +2,38 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/review/index.css">
+    <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let's practice!!</title>
 </head>
 <body>
+    <div id="weather">
+        <span></span>
+        <span></span>
+    </div>
+   
     <span id="clock">00:00:00</span>
     <form  id="loginForm" class="hidden">
-        <input required type="text" placeholder="Your name">
+        <input  type="text" placeholder="Your name" required />
         <button>GO</button>
     </form>
     <h1 id="sayHello" class="hidden"></h1>
-    <form id="whatTodo">
-        <input required type="text" placeholder="What's your plan today?">
-        <button>GO</button>
-    </form>
-    <ul id="todoList"></ul>
-    <script src="/review/clcok.js"></script>
-    <script src="/review/greeting.js"></script>
-    <script src="/review/todoList.js"></script>
-    <script src="/review/weather.js"></script>
+    <div class="logout">
+        <button class="hidden">bye</button>
+    </div>
+    <div class="main">
+        <div class="todoList">
+            <form id="whatTodo">
+                <input type="text" placeholder="What's your plan today?" required />
+                <button>GO</button>
+            </form>
+            <ul id="todoList"></ul>
+        </div>
+    </div>
+
+    <script src="clcok.js"></script>
+    <script src="greeting.js"></script>
+    <script src="todoList.js"></script>
+    <script src="weather.js"></script>
 </body>
 </html>
