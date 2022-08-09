@@ -33,12 +33,12 @@ author.innerHTML = `-${todaysQuote.author}-`;
 
 
 const imges = [
- "/img/img1.jpg","/img/img2.jpg","/img/img3.jpg","/img/img4.jpg","/img/img5.jpg"
+ "img1.jpg","img2.jpg","img3.jpg","img4.jpg","img5.jpg"
 ];
 
 const chosenImg = imges[Math.floor(Math.random()*imges.length)];
 
 const bgImg = document.createElement("img");
-bgImg.src=chosenImg;
+bgImg.src=`/review/img/${chosenImg}`;
 
 document.body.appendChild(bgImg);
