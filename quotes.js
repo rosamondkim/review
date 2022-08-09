@@ -33,7 +33,7 @@ author.innerText = `-${todaysQuote.author}-`;
 
 
 const imges = [
- "img/img1.jpg","img/img2.jpg","img/img3.jpg","img/img4.jpg","img/img5.jpg"
+ "/img/img1.jpg","/img/img2.jpg","/img/img3.jpg","/img/img4.jpg","/img/img5.jpg"
 ];
 
 const chosenImg = imges[Math.floor(Math.random()*imges.length)];
